@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Photon by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<section id="header">
+		<div class="inner">
+			<span class="icon solid major fa-cloud"></span>
+			<h1> Qualidade do ar em Manaus </h1>
+			<ul class="actions special">
+				<li><a href="#one" class="button scrolly">Ver mais</a></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- One -->
+	<section id="one" class="main style1">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<h2>Problemas na qualidade do ar de Manaus<br /></h2>
+					</header>
+					<p>De acordo com dados do Instituto Nacional de Pesquisas Espaciais (Inpe), o número de focos de
+						queimadas registrado no Amazonas em outubro deste ano foi o maior para este mês em toda a série
+						histórica, iniciada em 1998. Foram computados 3.858 focos de incêndio, 70% deles apenas entre os
+						dias 1º e 12 de outubro. O recorde anterior era de 2009, com 2.409 focos. No bioma Amazônia,
+						foram 22.061 focos no mês. </p>
+
+					<p>No dia 11 de outubro, Manaus registrava <b>387 microgramas</b> de poluentes por metro cúbico, o
+						que indicava que todos os moradores da cidade estavam sujeitos a efeitos sérios na saúde. </p>
+				</div>
+				<img src="./images/image.png" alt="indice de qualidade do ar em Manaus" width="550" height="600">
+				<div class="col-6 col-12-medium imp-medium">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- two -->
+	<section id="two" class="main style2">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+
+					<header class="major">
+						<h2> Causas da poluição do ar de Manaus<br /></h2>
+					</header>
+					<p> A conjunção de aquecimento global e El Niño, que levou a uma estiagem extrema na região
+						amazônica, contribuiu para um aumento alarmante dos focos de incêndio. </p>
+					<p> A intensa nuvem de fumaça que sufocou a cidade foi resultado de dois fatores principais: a seca
+						severa na Amazônia e as queimadas na região metropolitana de Manaus, especialmente nos
+						municípios de Careiro e Autazes, nas proximidades da BR-319. </p>
+				</div>
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<img src="./images/queumada.jpg" alt="Nuvem de fumaça" width="650" height="400">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Three -->
+	<section id="three" class="main style1 special">
+		<div class="container">
+			<header class="major">
+				<h2> Qualidade do ar em 2024 </h2>
+			</header>
+			<div class="row gtr-150">
+				<div class="container">
+					<img src="./images/tabela.png" alt="Nuvem de fumaça" width="400" height="400">
+					<h3> <b>Manaus-AM</b> </h3>
+					<p>A qualidade do ar é aceitável; contudo, relativamente a alguns poluentes, poderá existir uma
+						preocupação moderada em termos de saúde para um número muito reduzido de pessoas que sejam
+						extremamente sensíveis à poluição atmosférica.</p>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- four -->
+	<section id="four" class="main style2">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<h2>Informações Adicionais</h2>
+					</header>
+					<form action="processar_dados.php" method="post">
+						<div class="row gtr-uniform">
+							<div class="col-12">
+								<label for="zona">Zona:</label>
+								<select name="zona" id="zona">
+									<option value="">Selecione uma zona</option>
+									<!-- Opções de zonas de Manaus -->
+									<option value="zona_norte">Zona Norte</option>
+									<option value="zona_sul">Zona Oeste</option>
+									<option value="zona_sul">Zona Sul</option>
+									<option value="zona_sul">Zona Leste 1</option>
+									<option value="zona_sul">Zona Leste 2</option>
+									<option value="zona_sul">Zona Rural Ribeirinha</option>
+									<option value="zona_sul">Zona Rural Rodoviária</option>
+									<!-- Adicione mais opções conforme necessário -->
+								</select>
+							</div>
+							<div class="col-12">
+								<label for="qualidade_ar">Qualidade do Ar:</label>
+								<input type="number" name="qualidade_ar" id="qualidade_ar" min="0" max="1000"
+									placeholder="Informe a qualidade do ar (0-1000)">
+								<!-- Campo oculto para armazenar o valor da zona -->
+								<input type="hidden" name="zona_valor" id="zona_valor">
+							</div>
+							<div class="col-12">
+								<ul class="actions">
+									<li><input type="submit" value="Enviar" class="primary"></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-6 col-12-medium">
+					<header class="major">
+					</header>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<div id="resultado">
+		<!-- O resultado será exibido aqui -->
+	</div>
+
+	<script>
+		function calcularEfeito() {
+			var qualidade_ar = parseInt(document.getElementById("qualidade_ar").value);
+			var resultado = document.getElementById("resultado");
+			var mensagem = "";
+
+			if (qualidade_ar >= 0 && qualidade_ar <= 50) {
+				mensagem = "Bom ou Moderado - Pessoas de grupos sensíveis (crianças, idosos e pessoas com doenças respiratórias e cardíacas) podem apresentar sintomas como tosse seca e cansaço. A população em geral não é afetada.";
+			} else if (qualidade_ar >= 51 && qualidade_ar <= 100) {
+				mensagem = "Moderado - Pessoas de grupos sensíveis (crianças, idosos e pessoas com doenças respiratórias e cardíacas) podem apresentar sintomas como tosse seca e cansaço. A população em geral não é afetada.";
+			} else if (qualidade_ar >= 101 && qualidade_ar <= 150) {
+				mensagem = "Ruim - Toda a população pode apresentar sintomas como tosse seca, cansaço, ardor nos olhos, nariz e garganta. Pessoas de grupos sensíveis (crianças, idosos e pessoas com doenças respiratórias e cardíacas) podem apresentar efeitos mais sérios na saúde.";
+			} else if (qualidade_ar >= 151 && qualidade_ar <= 200) {
+				mensagem = "Muito Ruim - Toda a população pode apresentar agravamento dos sintomas como tosse seca, cansaço, ardor nos olhos, nariz e garganta, e ainda falta de ar e respiração ofegante. Efeitos ainda mais graves à saúde de grupos sensíveis.";
+			} else if (qualidade_ar > 200) {
+				mensagem = "Péssima - Toda a população pode apresentar sérios riscos de manifestações de doenças respiratórias e cardiovasculares. Aumento de mortes prematuras em pessoas de grupos sensíveis.";
+			} else {
+				mensagem = "Valor inválido.";
+			}
+
+			// Exibir mensagem em um pop-up
+			alert(mensagem);
+		}
+	</script>
+
+
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
